@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.salon.api.salonapi.service.SalonServiceDetail;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

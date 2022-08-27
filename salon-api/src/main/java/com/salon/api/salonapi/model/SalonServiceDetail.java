@@ -1,4 +1,4 @@
-package com.salon.api.salonapi.service;
+package com.salon.api.salonapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
