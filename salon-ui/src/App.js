@@ -1,23 +1,39 @@
 // import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect, useState } from 'react';
+import { Button, Col, Row } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import AppNotificationComponent from './display/components/app-notification';
+import LoadingIndicatorComponent from './display/components/loading-indicator';
+import ChooseService from './components/choose-service';
+
+
 
 function App() {
   return (
-    <Navbar bg="dark" variant="dark">
+    <div>
+      <Navbar bg="dark" variant="dark">
+        <Container>
+          <Row>
+            <Col>
+              <Navbar.Brand href="#home">AR Salon & Day Spa Services</Navbar.Brand>
+            </Col>
+          </Row>
+        </Container>
+      </Navbar>
       <Container>
-        <Navbar.Brand href="#home">AR Salon & Day Spa Services</Navbar.Brand>
-        
-        {/* <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Signed in as: <a href="#login">Mark Otto</a>
-          </Navbar.Text>
-        </Navbar.Collapse> */}
+        <Row>
+          <LoadingIndicatorComponent />
+          <Col>
+            <AppNotificationComponent />
+          </Col>
+          <ChooseService />
+        </Row>
       </Container>
-    </Navbar>
+    </div>
+
   );
 }
 

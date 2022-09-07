@@ -21,6 +21,7 @@ public class SalonDetailsController {
     private SalonServiceDetailsService salonServiceDetailsService;
 
     @GetMapping("retrieveAvailableSalonServices")
+
     @ResponseStatus(code=HttpStatus.OK)
     @Operation(summary = "Provides all services available for spa")
     public Iterable<SalonServiceDetail> getAllSalonServices(){
