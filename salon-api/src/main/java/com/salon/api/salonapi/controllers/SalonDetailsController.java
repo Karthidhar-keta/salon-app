@@ -14,13 +14,12 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/api/services/")
 @Tag(name="RetrieveAvailableSalonServicesAPI",description = "this controller provides services to manage salon services")
 public class SalonDetailsController {
     @Autowired
     private SalonServiceDetailsService salonServiceDetailsService;
 
-    @GetMapping("retrieveAvailableSalonServices")
+    @GetMapping("/api/services/retrieveAvailableSalonServices")
 
     @ResponseStatus(code=HttpStatus.OK)
     @Operation(summary = "Provides all services available for spa")
