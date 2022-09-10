@@ -3,27 +3,28 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from 'react';
 import loadingIndicator from '../display/services/loading-indicator';
 import appNotification from '../display/services/app-notification';
+import { Link } from 'react-router-dom';
 
 const retriveAvailableSalonServices = "http://localhost:8080/api/services/retrieveAvailableSalonServices";
 function ChooseService() {
     const [data, setData] = useState([]);
     function bookService(service) {
-        console.log(service)
+        // console.log(service)
     }
 
-    
+
     useEffect(() => {
         loadingIndicator.showLoading(true);
         setTimeout(() => {
             loadingIndicator.showLoading(false)
             fetch(retriveAvailableSalonServices)
-            .then((res) => res.json())
-            .then((data) => setData(data))
-            .catch(err=>{appNotification.showError("Error while fetching the data from backend..")});
+                .then((res) => res.json())
+                .then((data) => setData(data))
+                .catch(err => { appNotification.showError("Error while fetching the data from backend..") });
         }, 1000);
 
 
-        
+
     }, []);
     return (<div>
         <Container style={{
@@ -55,7 +56,9 @@ function ChooseService() {
                                 <Card.Text>
                                     {value["timeInMinutes"]} Minutes
                                 </Card.Text>
-                                <Button onClick={() => { bookService(value) }} variant="outline-secondary">Book now</Button>
+                                <Link to={`/chooseslot/${value["id"]}/${value["name"]}`}>
+                                    <Button onClick={() => { bookService(value) }} variant="outline-primary">Book now</Button>
+                                </Link>
                             </Card.Body>
                         </Card>
                     </Col>
